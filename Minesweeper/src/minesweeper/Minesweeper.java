@@ -8,6 +8,7 @@ public class Minesweeper extends javax.swing.JFrame {
 
     private Board board = new Board(this);
     private javax.swing.Timer timer;
+    private int timerNum = 0;
     private boolean won = false;
     private boolean lost = false;
     /**
@@ -42,7 +43,7 @@ public class Minesweeper extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                timerField.setText("" + (Integer.parseInt(timerField.getText()) + 1));
+                timerField.setText(String.valueOf(++timerNum));
             }
         });
         setLocationRelativeTo(null);
@@ -67,6 +68,7 @@ public class Minesweeper extends javax.swing.JFrame {
         addListeners();
         setFlag(0);
         timerField.setText("0");
+        timerNum = 0;
         smile.setIcon(Icon.SMILE.image);
         pack();
         repaint();
@@ -387,7 +389,7 @@ public class Minesweeper extends javax.swing.JFrame {
      * Called when the user clicks the Exit option in the Game menu
      */
     private void exitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitGameActionPerformed
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_exitGameActionPerformed
     /**
      * Called when the user clicks the Beginner option in the Game menu
