@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 
 /**
  * A Space object, representing either an empty space or a mine.
+ *
  * @author Daniel
  */
 public abstract class Space extends JLabel {
@@ -18,6 +19,7 @@ public abstract class Space extends JLabel {
 
     /**
      * Class constructor
+     *
      * @param x The myWidth coordinate
      * @param y The myHeight coordinate
      */
@@ -32,12 +34,14 @@ public abstract class Space extends JLabel {
 
     /**
      * Indicates a mine
+     *
      * @return Whether this space is a mine
      */
     public abstract boolean isMine();
 
     /**
      * Gets this space's myWidth coordinate
+     *
      * @return myWidth coordinate
      */
     public int getMyX() {
@@ -46,6 +50,7 @@ public abstract class Space extends JLabel {
 
     /**
      * Gets this space's myHeight coordinate
+     *
      * @return myHeight coordinate
      */
     public int getMyY() {
@@ -54,6 +59,7 @@ public abstract class Space extends JLabel {
 
     /**
      * Gets this space's state
+     *
      * @return State
      */
     public State getState() {
@@ -62,6 +68,7 @@ public abstract class Space extends JLabel {
 
     /**
      * Gets the space adjacent to this one in the specified direction.
+     *
      * @param dir The direction
      * @param board The playing board to reference
      * @return The adjacent space
@@ -72,6 +79,7 @@ public abstract class Space extends JLabel {
 
     /**
      * Gets all spaces adjacent to this one.
+     *
      * @param board The playing board to reference
      * @return A list of adjacent spaces
      */
@@ -88,6 +96,7 @@ public abstract class Space extends JLabel {
 
     /**
      * Sets this space to the specified State
+     *
      * @param s The new State
      */
     public void setState(State s) {

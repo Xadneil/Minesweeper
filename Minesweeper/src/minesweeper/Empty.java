@@ -2,6 +2,7 @@ package minesweeper;
 
 /**
  * An empty Space with a number indicating how many mines are in adjacent spaces
+ *
  * @author Daniel
  */
 public class Empty extends Space {
@@ -10,6 +11,7 @@ public class Empty extends Space {
 
     /**
      * Class constructor
+     *
      * @param x The X coordinate
      * @param y The Y coordinate
      */
@@ -19,6 +21,7 @@ public class Empty extends Space {
 
     /**
      * Sets this space's number.
+     *
      * @param number The new number
      */
     public void setNumber(int number) {
@@ -27,6 +30,7 @@ public class Empty extends Space {
 
     /**
      * Gets this space's number.
+     *
      * @return The number
      */
     public int getNumber() {
@@ -35,6 +39,7 @@ public class Empty extends Space {
 
     /**
      * Tells this is not a mine
+     *
      * @return false
      */
     @Override

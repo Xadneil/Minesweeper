@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 
 /**
  * An extention of the MouseAdapter class to dispatch various mouse commands.
+ *
  * @author Daniel
  */
 public class BoardListener extends MouseAdapter {
@@ -15,6 +16,7 @@ public class BoardListener extends MouseAdapter {
 
     /**
      * Class Constructor
+     *
      * @param board The Board which contains the Space
      */
     public BoardListener(Board board) {
@@ -33,13 +35,13 @@ public class BoardListener extends MouseAdapter {
                 right = e.getButton() == MouseEvent.BUTTON3,
                 middle = e.getButton() == MouseEvent.BUTTON2;
 
-        if (!board.isBegun() && left && !rightDown && !chordTeasing) {
+        if (!board.isBegun() && left && !rightDown && !chordTeasing) { //initial release of left
             board.unteaseSmile();
             board.begin(e.getX() / Minesweeper.SIZE, e.getY() / Minesweeper.SIZE);
-        } else if (left && !rightDown && !chordTeasing) {
+        } else if (left && !rightDown && !chordTeasing) { //later releases of lleft
             board.unteaseSmile();
             board.singleClear(board.spaceAt(e.getX(), e.getY()));
-        } else if ((left && rightDown) || (right && leftDown) || middle) {
+        } else if ((left && rightDown) || (right && leftDown) || middle) { //release of either button to clear 9 space area
             board.unteaseSmile();
             board.quickClear(board.spaceAt(e.getX(), e.getY()));
         }
@@ -49,7 +51,7 @@ public class BoardListener extends MouseAdapter {
         } else if (right) {
             rightDown = false;
         }
-        if (chordTeasing && left) {
+        if (chordTeasing && left) { //handle unteasing of surrounding spaces
             board.spaceAt(e.getX(), e.getY()).untease();
             for (Space s : board.spaceAt(e.getX(), e.getY()).getAllAdjecentSpaces(board)) {
                 s.untease();
@@ -76,7 +78,7 @@ public class BoardListener extends MouseAdapter {
         boolean left = e.getButton() == MouseEvent.BUTTON1,
                 right = e.getButton() == MouseEvent.BUTTON3,
                 middle = e.getButton() == MouseEvent.BUTTON2;
-        if (right) {
+        if (right) { //handle right press
             rightDown = true;
             if (leftDown) {
                 board.teaseChord(board.spaceAt(e.getX(), e.getY()));
@@ -85,7 +87,7 @@ public class BoardListener extends MouseAdapter {
             } else {
                 board.cycleState(board.spaceAt(e.getX(), e.getY()));
             }
-        } else if (left) {
+        } else if (left) { //handle left press
             leftDown = true;
             if (rightDown) {
                 board.teaseChord(board.spaceAt(e.getX(), e.getY()));
@@ -147,8 +149,9 @@ public class BoardListener extends MouseAdapter {
 
     /**
      * Moves the square of teasing spaces
+     *
      * @param newCenter
-     * @param oldCenter 
+     * @param oldCenter
      */
     public void continueChording(Space newCenter, Space oldCenter) {
         board.teaseChord(newCenter);

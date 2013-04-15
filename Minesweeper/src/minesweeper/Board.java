@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * A playing field which holds a two-dimensional array of Spaces and which
  * coordinates between them.
+ *
  * @author Daniel
  */
 public class Board {
@@ -18,6 +19,7 @@ public class Board {
 
     /**
      * Class Constructor
+     *
      * @param parent The Minesweeper object that contains this
      */
     public Board(Minesweeper parent) {
@@ -48,8 +50,9 @@ public class Board {
     }
 
     /**
-     * Generates the mine scatter and numbers, making sure the starting click
-     * is an empty space
+     * Generates the mine scatter and numbers, making sure the starting click is
+     * an empty space
+     *
      * @param startWidth The starting click's myWidth
      * @param startHeight The starting click's myHeight
      */
@@ -150,6 +153,7 @@ public class Board {
 
     /**
      * Gets all the Spaces in the board in order
+     *
      * @return A List of Spaces
      */
     public List<Space> getAllSpaces() {
@@ -162,6 +166,7 @@ public class Board {
 
     /**
      * Gets the Space at the real coordinates specified
+     *
      * @param x The real x coordinate
      * @param y The real y coordinate
      * @return The Space at that position
@@ -172,6 +177,7 @@ public class Board {
 
     /**
      * Gets the beginning state of this board
+     *
      * @return Whether this board has begun
      */
     public boolean isBegun() {
@@ -180,6 +186,7 @@ public class Board {
 
     /**
      * Gets the ending state of this board
+     *
      * @return Whether this board has been finished
      */
     public boolean isFinished() {
@@ -188,6 +195,7 @@ public class Board {
 
     /**
      * Begins the game
+     *
      * @param x the starting x
      * @param y the starting y
      */
@@ -198,6 +206,7 @@ public class Board {
 
     /**
      * Gets the number of mines around a certain space
+     *
      * @param x The myWidth coordinate
      * @param y The myWidth coordinate
      * @return the number of mines around it
@@ -214,6 +223,7 @@ public class Board {
 
     /**
      * Gets the Space at the specified coordinates
+     *
      * @param x myWidth coordinate
      * @param y myHeight coordinate
      * @return the corresponding space
@@ -228,6 +238,7 @@ public class Board {
     /**
      * Cycles the state of a space: Uncovered to Flagged to Questioned to
      * Uncovered. Called in the case of a right click.
+     *
      * @param sp The space to cycle
      */
     public void cycleState(Space sp) {
@@ -252,6 +263,7 @@ public class Board {
      * Clears a single space if is is not already revealed, losing if it is a
      * mine. If the space has no mines surrounding it, all spaces around it are
      * also revealed. Called in the case of a left click.
+     *
      * @param sp The space to clear
      */
     public void singleClear(Space sp) {
@@ -281,6 +293,7 @@ public class Board {
      * flagged spaces surrounding it, all un-flagged spaces surrounding it are
      * revealed, even if this results in a loss. Called in the case of a both or
      * middle click.
+     *
      * @param center The space in the center of the reveal
      */
     public void quickClear(Space center) {
@@ -307,7 +320,8 @@ public class Board {
 
     /**
      * Teases all covered spaces around and including a center
-     * @param center 
+     *
+     * @param center
      */
     public void teaseChord(Space center) {
         for (Space o : center.getAllAdjecentSpaces(this)) {

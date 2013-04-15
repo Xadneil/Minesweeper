@@ -2,6 +2,7 @@ package minesweeper;
 
 /**
  * An enumeration of the icons used. Contains the corresponding ImageIcon.
+ *
  * @author Daniel
  */
 public enum Icon {

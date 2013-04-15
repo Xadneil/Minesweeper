@@ -3,6 +3,7 @@ package minesweeper;
 /**
  * An enumeration of the 8 directions. Contains x and y modifiers to add to
  * existing coordinates. (Due to array structure, y is inverted.)
+ *
  * @author Daniel
  */
 public enum Direction {

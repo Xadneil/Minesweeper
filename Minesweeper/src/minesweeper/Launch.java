@@ -2,12 +2,14 @@ package minesweeper;
 
 /**
  * The Launch class
+ *
  * @author Daniel
  */
 public class Launch {
 
     /**
      * Starts the Minesweeper program
+     *
      * @param args The command line arguments
      */
     public static void main(String args[]) {
@@ -26,7 +28,6 @@ public class Launch {
                 break;
         }
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
-
             @Override
             public void run() {
                 Minesweeper m = new Minesweeper();
