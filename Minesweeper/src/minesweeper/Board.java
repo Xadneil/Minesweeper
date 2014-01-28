@@ -2,6 +2,7 @@ package minesweeper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,6 +50,11 @@ public class Board {
         return ret;
     }
 
+    private class Index {
+
+        public int row, column;
+    }
+
     /**
      * Generates the mine scatter and numbers, making sure the starting click is
      * an empty space
@@ -86,13 +92,21 @@ public class Board {
                 }
             }
         }
+        List<Index> nextMine = new ArrayList<Index>(board.length * board[0].length);
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] == null) {
+                    Index t = new Index();
+                    t.row = i;
+                    t.column = j;
+                    nextMine.add(t);
+                }
+            }
+        }
+        Collections.shuffle(nextMine);
         for (int i = 0; i < Minesweeper.Mines; i++) {
-            int x, y;
-            do {
-                x = (int) (Math.random() * board[0].length);
-                y = (int) (Math.random() * board.length);
-            } while (board[y][x] != null);
-            board[y][x] = new Mine(x, y);
+            Index t = nextMine.remove(nextMine.size() - 1);
+            board[t.row][t.column] = new Mine(t.column, t.row);
         }
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[y].length; x++) {

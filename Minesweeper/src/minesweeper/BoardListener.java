@@ -38,7 +38,7 @@ public class BoardListener extends MouseAdapter {
         if (!board.isBegun() && left && !rightDown && !chordTeasing) { //initial release of left
             board.unteaseSmile();
             board.begin(e.getX() / Minesweeper.SIZE, e.getY() / Minesweeper.SIZE);
-        } else if (left && !rightDown && !chordTeasing) { //later releases of lleft
+        } else if (left && !rightDown && !chordTeasing) { //later releases of left
             board.unteaseSmile();
             board.singleClear(board.spaceAt(e.getX(), e.getY()));
         } else if ((left && rightDown) || (right && leftDown) || middle) { //release of either button to clear 9 space area
